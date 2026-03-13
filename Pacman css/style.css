@@ -1,0 +1,81 @@
+div{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+.pacman{
+    display: flex;
+    justify-content: center;
+    height: 160px;
+    width: 160px;
+    position: relative;
+}
+.pacman::after, .pacman::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 80px solid #ffd000;
+    border-right: 80px solid transparent;
+    border-radius: 50%;
+}
+@keyframes animate1{
+    0%{
+        transform: rotate(270deg);
+    }
+    50%{
+        transform: rotate(360deg);
+    }
+    100%{
+        transform: rotate(270deg);
+    }
+}
+@keyframes animate2{
+    0%{
+        transform: rotate(90deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
+.pacman::before{
+    animation: animate1 linear 0.5s infinite;
+}
+.pacman::after{
+    animation: animate2 linear 0.5s infinite;
+}
+.ball{
+    background-color: #ffd000;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50);
+    right: -100px;
+    opacity: 0;
+}
+@keyframes ball{
+    20%, 80%{
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-120px, -50%);
+    }
+}
+.ball{
+    animation: ball 1s 1s infinite linear;
+}
+.ball2{
+    animation: ball 1s 0.5s infinite linear;
+}
+.ball3{
+    animation: ball 1s 0s infinite linear;
+}
